@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "495031531843",
+    "project_id": "allinsafelogin",
+    "storage_bucket": "allinsafelogin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495031531843:android:bd9cb6c772e67df46497f6",
+        "android_client_info": {
+          "package_name": "com.example.allinsafe_bluetooth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRpepLGllchRtRLFXrGOTsGxOeh6FYE0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495031531843:android:df75634fc8622f4a6497f6",
+        "android_client_info": {
+          "package_name": "com.example.allinsafe_onlyui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRpepLGllchRtRLFXrGOTsGxOeh6FYE0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495031531843:android:0d67adb0086520ae6497f6",
+        "android_client_info": {
+          "package_name": "com.naver.appLock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRpepLGllchRtRLFXrGOTsGxOeh6FYE0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495031531843:android:688d8087981740416497f6",
+        "android_client_info": {
+          "package_name": "de.blinkt.openvpn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRpepLGllchRtRLFXrGOTsGxOeh6FYE0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

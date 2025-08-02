@@ -10,6 +10,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("checkstyle")
+    //25.07.03 lock
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -27,6 +29,7 @@ android {
     ndkVersion = "28.0.13004108"
 
     defaultConfig {
+        //25.07.03 lock은 24
         minSdk = 21 // 기존 vpn 앱 21
         targetSdk = 35
         //targetSdkPreview = "UpsideDownCake"
@@ -36,7 +39,7 @@ android {
         //  versionCode = 1
         //  versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
+        multiDexEnabled = true
         externalNativeBuild {
             cmake {
                 //arguments+= "-DCMAKE_VERBOSE_MAKEFILE=1"
@@ -97,17 +100,19 @@ android {
     compileOptions {
         targetCompatibility = JavaVersion.VERSION_17
         sourceCompatibility = JavaVersion.VERSION_17
+        //25.07.03 lock 은 VERSION_1_8
     }
 
     kotlinOptions {
         jvmTarget = "17"
+        //25.07.03 lock 은 1.8
     }
 
     splits {
         abi {
             isEnable = true
             reset()
-            include("x86", "x86_64", "armeabi-v7a", "arm64-v8a")
+            include( "x86_64", "arm64-v8a") //"x86", "armeabi-v7a"
             isUniversalApk = true
         }
     }
@@ -233,6 +238,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //firebse
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation(libs.firebase.firestore.ktx)
+    // implementation(libs.firebase.auth.ktx)
+    // 중복
+//    implementation(libs.androidx.core.ktx)
+    implementation("androidx.compose.runtime:runtime:1.5.4")
 }
 
 fun DependencyHandler.uiImplementation(dependencyNotation: Any): Dependency? =

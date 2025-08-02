@@ -6,7 +6,7 @@
         API 23
     -->
 
-    <uses-sdk tools:overrideLibrary="androidx.security" />
+    <uses-sdk tools:overrideLibrary="androidx.security"/>
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
@@ -22,6 +22,9 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 <!--          AllinsafeMainActivity에서 AppCompat~를 상속 근데, 테마가 Material 어쩌구라  android:theme="@style/Theme.AllinSafe">-->
+
+            <!-- 25.08.02 로그인 화면을 완전 처음으로 세팅-->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,10 +37,6 @@
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
         </activity>
         <!-- ✅ VpnService 등록 -->
         <service
@@ -182,6 +181,118 @@
             android:exported="true"
             android:grantUriPermissions="true"
             tools:ignore="ExportedContentProvider" />
+
+
+
+
+
+        <!--25.08.02 앱-화면잠금,블루투스 합병 -> 필요없는 vpn 파일들 삭제 후 다시 하겠음-->
+<!--        <activity-->
+<!--            android:name=".ac0_main.Ac0_09_user_info"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_main.Ac0_00_main_init_main"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac1_applock.EditLockAppActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac1_applock.AlarmActivity"-->
+<!--            android:exported="false" /> &lt;!&ndash; 여기서부턴 로그인,핀/패턴 &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name=".ac0_login.Ac0_02_register"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_patternpin.Ac0_03_choose_pinOrPattern"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_patternpin.Ac0_04_pattern_setup"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_patternpin.Ac0_05_pattern_verify"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_patternpin.Ac0_06_pin_setup"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_patternpin.Ac0_07_pin_verify"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_patternpin.Ac0_08_pinpattern_forwarding"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac1_applock.Ac1_01_applock_init_main"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac4_screenlock.Ac4_01_screenlock_main"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".ac0_login.Ac0_01_login"-->
+<!--            android:exported="true">-->
+<!--            &lt;!&ndash; 25.08.02 로그인 메인 화면 &ndash;&gt;-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        <service-->
+<!--            android:name=".ac1_applock.AppLockAccessibilityService"-->
+<!--            android:exported="false"-->
+<!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.accessibilityservice.AccessibilityService" />-->
+<!--            </intent-filter>-->
+
+<!--            <meta-data-->
+<!--                android:name="android.accessibilityservice"-->
+<!--                android:resource="@xml/accessibility_service_config" />-->
+<!--        </service>-->
+
+<!--        <receiver android:name=".OnBootReceiver"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter android:priority="999">-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+<!--                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+<!--        &lt;!&ndash; ✅ PIN 설정 액티비티 &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name="com.naver.appLock.ac4_screenlock.pinlock.PinSetupActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="PIN 설정"-->
+<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+
+<!--        &lt;!&ndash; ✅ PIN 입력 액티비티 &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name="com.naver.appLock.ac4_screenlock.pinlock.PinLockActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="PIN 인증"-->
+<!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
+
+<!--        &lt;!&ndash; ✅ Device Admin 수신자 &ndash;&gt;-->
+<!--        <receiver-->
+<!--            android:name="com.naver.appLock.ac4_screenlock.MyDeviceAdminReceiver"-->
+<!--            android:permission="android.permission.BIND_DEVICE_ADMIN"-->
+<!--            android:exported="false">-->
+<!--            <meta-data-->
+<!--                android:name="android.app.device_admin"-->
+<!--                android:resource="@xml/device_admin_receiver" />-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+<!--        &lt;!&ndash; ✅ 잠금 해제 감지 리시버 &ndash;&gt;-->
+<!--        <receiver-->
+<!--            android:name="com.naver.appLock.ac4_screenlock.receiver.LockStatusReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.USER_PRESENT" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
     </application>
 
 </manifest>

@@ -13,7 +13,8 @@ pluginManagement {
             }
         }
         mavenCentral()
-
+        //25.07.03 lock
+        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -26,6 +27,8 @@ dependencyResolutionManagement {
 }
 
 // spoofing 은 app인데, 실행 버튼 옆 이름의 설정이라 기능적 지장 없어 그대로 둠
+// 25.07.03 걍 app으로 바꿈 *기존 main
+// rootProject = 왼쪽 상단의 앱 이름
 rootProject.name = "AllinSafe"
 include(":main")
 //include(":tlsexternalcertprovider")

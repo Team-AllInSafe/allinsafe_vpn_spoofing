@@ -32,6 +32,11 @@ junit = "4.13.2"
 mockito-core = "4.8.1"
 robolectric = "4.10.2"
 
+#firebase
+firebaseAuthKtx = "23.2.1"
+firebaseFirestoreKtx = "25.1.4"
+googleServices = "4.4.0"
+
 [libraries]
 android-view-material = { group = "com.google.android.material", name = "material", version.ref = "android-view-material" }
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidx-annotation" }
@@ -76,7 +81,14 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito-core" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
+#firebase
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#firebase
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
