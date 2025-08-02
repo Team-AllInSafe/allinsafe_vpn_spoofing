@@ -31,7 +31,8 @@ class SpoofingDetectionManager(
 
         isDetecting = true
         detectionStartTime = System.currentTimeMillis()
-        LogManager.log("SpoofingManager", "탐지 시작")
+        //25.06.24
+//        LogManager.log("SpoofingManager", "탐지 시작")
 
         Thread {
             while (isDetecting) {
@@ -45,7 +46,8 @@ class SpoofingDetectionManager(
                     //?
                     if (!isDetecting)
                     isDetecting = false
-                    LogManager.log("SpoofingManager", "탐지 종료")
+                    //25.06.24
+//                    LogManager.log("SpoofingManager", "탐지 종료")
                     
                 }
 
@@ -63,7 +65,8 @@ class SpoofingDetectionManager(
     fun stopDetection() {
         if (!isDetecting) return
         isDetecting = false
-        LogManager.log("SpoofingManager", "탐지 종료")
+        //25.06.24
+//        LogManager.log("SpoofingManager", "탐지 종료")
     }
 
     fun isDetectionRunning(): Boolean = isDetecting
