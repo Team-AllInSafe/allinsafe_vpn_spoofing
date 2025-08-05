@@ -197,11 +197,11 @@ public class ProfileManager {
     }
 
     public static VpnProfile get(Context context, String profileUUID, int version, int tries) {
-        Log.d("allinsafevpn","[public ProfileManager.get]");
+//        Log.d("allinsafevpn","[public ProfileManager.get]");
         checkInstance(context);
         VpnProfile profile = get(profileUUID);
 //        Log.d("allinsafevpn", "uuid=" + profile.getUUID() + ", version=" + profile.mVersion);
-        Log.d("allinsafevpn","[public ProfileManager.get] profile is "+profile);
+//        Log.d("allinsafevpn","[public ProfileManager.get] profile is "+profile);
         int tried = 0;
         while ((profile == null || profile.mVersion < version) && (tried++ < tries)) {
             try {
@@ -313,7 +313,7 @@ public class ProfileManager {
     }
 
     private synchronized void loadVPNList(Context context) {
-        Log.d("allinsafevpn","[loadVPNList]");
+//        Log.d("allinsafevpn","[loadVPNList]");
         profiles = new HashMap<>();
         SharedPreferences listpref = Preferences.getSharedPreferencesMulti(PREFS_NAME, context);
         Set<String> vlist = listpref.getStringSet("vpnlist", null);
@@ -323,9 +323,7 @@ public class ProfileManager {
         // Always try to load the temporary profile
         vlist.add(TEMPORARY_PROFILE_FILENAME);
 
-        Log.d("allinsafevpn","[loadVPNList] vpnlist 길이: "+vlist.size());
-
-
+//        Log.d("allinsafevpn","[loadVPNList] vpnlist 길이: "+vlist.size());
 
         for (String vpnentry : vlist) {
             loadVpnEntry(context, vpnentry);
@@ -333,7 +331,7 @@ public class ProfileManager {
     }
 
     private synchronized void loadVpnEntry(Context context, String vpnentry) {
-        Log.d("allinsafevpn","[loadVpnEntry]");
+//        Log.d("allinsafevpn","[loadVpnEntry]");
         ObjectInputStream vpnfile = null;
         try {
             FileInputStream vpInput;
@@ -342,10 +340,10 @@ public class ProfileManager {
             File encryptedPathOld = context.getFileStreamPath(vpnentry + ".cpold");
 
             if (encryptedPath.exists()) {
-                Log.d("allinsafevpn","encryptedPath exists : "+encryptedPath);
+//                Log.d("allinsafevpn","encryptedPath exists : "+encryptedPath);
                 vpInput = ProfileEncryption.getEncryptedVpInput(context, encryptedPath);
             } else if (encryptedPathOld.exists()) {
-                Log.d("allinsafevpn","encryptedPathOld exists : "+encryptedPathOld);
+//                Log.d("allinsafevpn","encryptedPathOld exists : "+encryptedPathOld);
                 vpInput = ProfileEncryption.getEncryptedVpInput(context, encryptedPathOld);
             } else {
                 // encryped 된 파일이 없으면 일반 vpnprofile 파일을 불러온다
