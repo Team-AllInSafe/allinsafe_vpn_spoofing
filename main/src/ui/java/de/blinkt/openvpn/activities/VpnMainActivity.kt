@@ -13,8 +13,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
-import androidx.core.app.ActivityCompat.startActivityForResult
-import com.google.firestore.v1.FirestoreGrpc.bindService
+//import androidx.core.app.ActivityCompat.startActivityForResult
+//import com.google.firestore.v1.FirestoreGrpc.bindService
 import de.blinkt.openvpn.R
 import de.blinkt.openvpn.VpnProfile
 import de.blinkt.openvpn.core.ConfigParser
@@ -30,11 +30,11 @@ class VpnMainActivity : BaseActivity() {
     lateinit var binding: Ac301VpnInitMainBinding
     private var mSelectedProfile: VpnProfile? = null
     private var mSelectedProfileReason: String? = null
-    private var isError = 1
-    private var isOk = 0
+//    private var isError = 1
+//    private var isOk = 0
     private var START_VPN_PROFILE = 11 // 그냥 아무 숫자 넣음
-    private var isAleadyCreated=false
-    private var fileCreated = false
+//    private var isAleadyCreated=false
+//    private var fileCreated = false
     lateinit var profile: VpnProfile
 
     private var vpnService: IOpenVPNServiceInternal? = null
@@ -75,7 +75,7 @@ class VpnMainActivity : BaseActivity() {
 
             try{
                 profile = ProfileManager.getLastConnectedProfile(applicationContext)
-            }catch(e:IllegalStateException){
+            }catch(e: Exception){ //IllegalStateException  NullPointerException e
                 val inputStream = assets.open("client.ovpn")
                 val reader = BufferedReader(InputStreamReader(inputStream))
                 val parser = ConfigParser()

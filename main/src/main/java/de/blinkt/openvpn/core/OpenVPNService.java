@@ -645,6 +645,7 @@ public class OpenVPNService extends VpnService implements StateListener, Callbac
 
 
     private void startOpenVPN(Intent intent, int startId) {
+        Log.d("allinsafe","startOpenVPN is called");
         VpnProfile vp = fetchVPNProfile(intent);
         if (vp == null) {
             stopSelf(startId);
